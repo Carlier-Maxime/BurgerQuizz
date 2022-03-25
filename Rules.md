@@ -6,7 +6,7 @@ Le principe consiste à répondre à diverses questions plus ou moins loufoques 
 
 Le jeu voit s'affronter deux équipes « Ketchup » et « Mayo »
 
-# Épreuves
+# Épreuves (catégories)
 
 ## Nuggets
 
