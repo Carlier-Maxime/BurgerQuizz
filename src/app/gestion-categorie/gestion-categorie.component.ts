@@ -17,6 +17,8 @@ export class GestionCategorieComponent implements OnInit {
     bareme: new FormControl(''),
     nb_questions: new FormControl(''),
   });
+  edit = false;
+  id = 0;
 
   constructor(private categoriesService: CategoriesService, private route: ActivatedRoute) { }
 
@@ -28,16 +30,34 @@ export class GestionCategorieComponent implements OnInit {
     });
   }
 
-  addCategorie(): boolean {
+  addCategorie(): void {
     const val: any = this.form.value;
-    this.categoriesService.addCategorie(
+    const categorie = this.categoriesService.addCategorie(
       {
         id_catetgorie : this.categories.length,
         libelle : val.libelle,
         bareme : val.bareme,
         nb_question : val.nb_questions}
     );
-    return true;
+    this.categories.push(categorie);
+  }
+
+  updateCategorie(): void {
+    const val: any = this.form.value;
+    const categorie = this.categoriesService.updateCategorie(this.id,
+      {
+        id_catetgorie : this.categories.length,
+        libelle : val.libelle,
+        bareme : val.bareme,
+        nb_question : val.nb_questions}
+    );
+    this.edit = false;
+  }
+
+  onEdit(id: number): void {
+    this.edit = true;
+    this.id = id;
+    console.log('on edit');
   }
 
 }
