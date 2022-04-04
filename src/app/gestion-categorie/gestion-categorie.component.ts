@@ -19,6 +19,7 @@ export class GestionCategorieComponent implements OnInit {
   });
   edit = false;
   id = 0;
+  current: any = null;
 
   constructor(private categoriesService: CategoriesService, private route: ActivatedRoute) { }
 
@@ -46,18 +47,29 @@ export class GestionCategorieComponent implements OnInit {
     const val: any = this.form.value;
     const categorie = this.categoriesService.updateCategorie(this.id,
       {
-        id_catetgorie : this.categories.length,
+        id_catetgorie : this.id,
         libelle : val.libelle,
         bareme : val.bareme,
         nb_question : val.nb_questions}
     );
     this.edit = false;
+    const i: number = this.findCategorie(this.id);
+    this.categories[i].libelle = categorie.libelle;
+    this.categories[i].bareme = categorie.bareme;
+    this.categories[i].nb_question = categorie.nb_question;
   }
 
   onEdit(id: number): void {
-    this.edit = true;
     this.id = id;
-    console.log('on edit');
+    this.current = this.categories[this.findCategorie(id)];
+    this.edit = true;
+  }
+
+  findCategorie(id: number): number {
+    for (let i = 1; i < this.categories.length; i++) {
+      if (this.categories[i].id_catetgorie === id) { return i; }
+    }
+    return -1;
   }
 
 }
