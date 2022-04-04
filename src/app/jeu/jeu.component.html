@@ -7,7 +7,16 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Affichage des questions</h1>
+  <button (click)="triSelEtPoivre()">Sel et Poivre</button>
+  <button (click)="triNuggets()">Nuggets</button>
+
+  <div *ngIf="estTrie">
+    <h1>Affichage des questions</h1>
+    <ul>
+      <li *ngFor="let q of tabQuestions|async">{{q.id_question}} {{q.explicit}} {{q.fun_fact}} {{q.id_catetgorie}} {{q.id_theme}} {{q.libelle}}</li>
+    </ul>
+
+  </div>
 
 
 </body>
