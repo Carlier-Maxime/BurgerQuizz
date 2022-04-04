@@ -20,3 +20,9 @@
     </tbody>
   </table>
 </div>
+<form [formGroup]='form' (ngSubmit)="addCategorie()">
+  <input type="text" formControlName="libelle">
+  <input type="number" formControlName="bareme">
+  <input type="number" formControlName="nb_questions">
+  <button type="submit">Ajouter</button>
+</form>

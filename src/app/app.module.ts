@@ -13,6 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,15 +24,17 @@ import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie
     NotFoundComponent,
     GestionCategorieComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatGridListModule,
-    MatCardModule,
-    MatProgressSpinnerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatGridListModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

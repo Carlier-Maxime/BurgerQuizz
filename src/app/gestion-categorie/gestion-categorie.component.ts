@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {QuestionsService} from '../services/questions.service';
 import {ActivatedRoute} from '@angular/router';
-import {ReponsesService} from '../services/reponses.service';
-import {Question} from '../models/question';
-import {Reponse} from '../models/reponse';
 import {Categorie} from '../models/categorie';
 import {CategoriesService} from '../services/categories.service';
+import {FormControl, FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-gestion-categorie',
@@ -14,7 +11,12 @@ import {CategoriesService} from '../services/categories.service';
 })
 export class GestionCategorieComponent implements OnInit {
   categories: Categorie[] = [];
-  loading: boolean = false;
+  loading = false;
+  form: FormGroup = new FormGroup({
+    libelle: new FormControl(''),
+    bareme: new FormControl(''),
+    nb_questions: new FormControl(''),
+  });
 
   constructor(private categoriesService: CategoriesService, private route: ActivatedRoute) { }
 
@@ -26,6 +28,16 @@ export class GestionCategorieComponent implements OnInit {
     });
   }
 
-
+  addCategorie(): boolean {
+    const val: any = this.form.value;
+    this.categoriesService.addCategorie(
+      {
+        id_catetgorie : this.categories.length,
+        libelle : val.libelle,
+        bareme : val.bareme,
+        nb_question : val.nb_questions}
+    );
+    return true;
+  }
 
 }
