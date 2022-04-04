@@ -14,6 +14,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { SelEtPoivreComponent } from './sel-et-poivre/sel-et-poivre.component';
 import { JeuComponent } from './jeu/jeu.component';
+import { JouerComponent } from './jouer/jouer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { JeuComponent } from './jeu/jeu.component';
     ReponsesComponent,
     NotFoundComponent,
     SelEtPoivreComponent,
-    JeuComponent
+    JeuComponent,
+    JouerComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { JeuComponent } from './jeu/jeu.component';
     HttpClientModule,
     MatGridListModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
