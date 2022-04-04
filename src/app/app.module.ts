@@ -12,6 +12,7 @@ import {MatCardModule} from "@angular/material/card";
 import {HttpClientModule} from "@angular/common/http";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     DashboardComponent,
     QuestionsComponent,
     ReponsesComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    GestionCategorieComponent
   ],
   imports: [
     BrowserModule,
