@@ -26,6 +26,7 @@ export class JouerComponent implements  OnChanges,OnInit {
   valInterval:number = this.nbSecondesEntreQuestion * 1000;
   estSoumis = false;
   form: any;
+  numQuestion = 0;
 
 
   constructor(private questionsService: QuestionsService, private route: ActivatedRoute, private reponsesService: ReponsesService,private fb:FormBuilder) {
@@ -44,6 +45,7 @@ export class JouerComponent implements  OnChanges,OnInit {
 
   afficheQuestion(){
     this.estSoumis = false;
+    this.numQuestion++;
     if(this.current.length > 0){
       this.id = this.current[this.current.length-1].id_question;
       this.questionsService.getQuestion(this.id).subscribe(question => {

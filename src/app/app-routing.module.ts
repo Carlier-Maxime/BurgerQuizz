@@ -1,3 +1,4 @@
+import { DecompteComponent } from './decompte/decompte.component';
 import { JouerComponent } from './jouer/jouer.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { NgModule } from '@angular/core';

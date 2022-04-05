@@ -60,8 +60,8 @@ export class JeuComponent implements OnInit {
         randNumber = Math.random() * this.themePossible.length - 1;
         randNumber = Math.ceil(randNumber);
         this.listeThemeSelect = [];
-        this.themeService.getTheme(this.themePossible[randNumber]).subscribe(value => {this.listeThemeSelect.push(value[0]); });
-        this.themePossible.slice(this.themePossible.indexOf(this.themePossible[randNumber]));
+        this.themeService.getTheme(this.themePossible[randNumber]).subscribe(value => {this.listeThemeSelect.push(value[0]); console.log(value[0]); });
+        this.themePossible.splice(this.themePossible.indexOf(this.themePossible[randNumber]), 1);
       }
     });
   }

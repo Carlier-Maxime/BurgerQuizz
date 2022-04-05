@@ -20,15 +20,45 @@
     />
   </section>
 
-  <div *ngIf="estTrie && !paramPartie">
-    <form [formGroup]="paramPartieValeur" (ngSubmit)="triSelectBis()">
-      <div *ngFor="let t of listeThemeSelect">
-        <label>{{t.libelle}}</label>
-        <input type="radio" value={{t.id_theme}} formControlName="theme">
+  <section class="choiceTheme" *ngIf="estTrie && !paramPartie">
+    <form class="choiceTheme_content" [formGroup]="paramPartieValeur" (ngSubmit)="triSelectBis()">
+
+      <div *ngFor="let t of listeThemeSelect" class="content_elt">
+        <input type="radio" value={{t.id_theme}} formControlName="theme" id={{t.id_theme}} name="themeBtn"/>
+        <label for={{t.id_theme}}><span>{{t.libelle}}</span></label>
       </div>
-      <button type="submit">Envoyer ! </button>
+
+      <button type="submit" class="submitTheme">
+        <span>Envoyer !</span>
+      </button>
+    </form>
+  </section>
+
+
+
+<!--
+
+  <div *ngIf="estTrie && !paramPartie">
+    <form
+        [formGroup]="paramPartieValeur"
+        (ngSubmit)="triSelectBis()">
+    <div *ngFor="let t of listeThemeSelect">
+      <label>{{t.libelle}}</label>
+      <input
+            type="radio"
+            value={{t.id_theme}}
+            formControlName="theme">
+
+    </div>
+    <button type="submit">Envoyer ! </button>
+
     </form>
   </div>
+
+-->
+
+
+
 
   <app-jouer *ngIf="estTrie && paramPartie" [tabQ]="tabQuestionsLive" [categorie]="categorie"></app-jouer>
 </main>
