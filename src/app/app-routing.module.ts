@@ -9,10 +9,9 @@ import {GestionCategorieComponent} from './gestion-categorie/gestion-categorie.c
 import {EquipesComponent} from './equipes/equipes.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
   {path: 'question/:id', component: QuestionsComponent},
   {path: 'jeu/:id', component: JouerComponent},
-  {path: 'api', component : JeuComponent},
+  {path: '', component : JeuComponent},
   {path: 'categorie', component: GestionCategorieComponent},
   {path: 'equipes', component: EquipesComponent},
   {path: '**', component: NotFoundComponent}
