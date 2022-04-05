@@ -7,6 +7,7 @@ import {QuestionsComponent} from './questions/questions.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {GestionCategorieComponent} from './gestion-categorie/gestion-categorie.component';
 import { ClassementComponent } from './classement/classement.component';
+import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'api', component : JeuComponent},
   {path: 'categorie', component: GestionCategorieComponent},
   {path: 'classement', component: ClassementComponent},
+  {path: 'classement-equipe', component: ClassementEquipeComponent},
   {path: '**', component: NotFoundComponent}
 ];
 

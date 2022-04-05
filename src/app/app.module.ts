@@ -18,6 +18,7 @@ import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JouerComponent } from './jouer/jouer.component';
 import { ClassementComponent } from './classement/classement.component';
+import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ClassementComponent } from './classement/classement.component';
     SelEtPoivreComponent,
     JeuComponent,
     JouerComponent,
-    ClassementComponent
+    ClassementComponent,
+    ClassementEquipeComponent
   ],
   imports: [
     BrowserModule,

@@ -52,15 +52,5 @@ export class JoueurService {
     tmpTab.subscribe(x=>console.log(x));
     return tmpTab;
   }
-  /*
-  this.test$ = Observable.of(['one', 'two', 'three'])
-  .map((data) => {
-      data.sort((a, b) => {
-          return a < b ? -1 : 1;
-      });
-      return data;
-  });
-  */
-
 }
 
