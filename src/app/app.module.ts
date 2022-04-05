@@ -18,6 +18,7 @@ import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JouerComponent } from './jouer/jouer.component';
 import { EquipesComponent } from './equipes/equipes.component';
+import {HeaderComponent} from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EquipesComponent } from './equipes/equipes.component';
     SelEtPoivreComponent,
     JeuComponent,
     EquipesComponent,
-    JouerComponent
+    JouerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
