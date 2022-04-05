@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {EquipesService} from '../services/equipes.service';
 
 @Component({
   selector: 'app-equipes',
@@ -14,7 +15,7 @@ export class EquipesComponent implements OnInit {
   load = false;
   idJoueur = 0;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private equipeService: EquipesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -24,7 +25,16 @@ export class EquipesComponent implements OnInit {
   }
 
   onSubmit(): void {
-
+    if (this.form.valid) {
+      let idEquipe = 0;
+      if (this.form.value.equipe === 'Mayo') { idEquipe = 0; }
+      else { idEquipe = 1; }
+      this.equipeService.addJoueurToEquipe({
+        id_equipe_joueur : this.equipeService.getLengthJoueurEquipe(),
+        id_joueur : this.idJoueur,
+        id_equipe : idEquipe
+      });
+    }
   }
 
 }
