@@ -9,7 +9,8 @@
         <li class="grid_elt"><a class="elt_cat" (click)="triSelect(3)">L'addition</a></li>
       </ul>
     </div>
-    <img
+    <div *ngIf="!isOk">
+      <img
       src="../../assets/images/Group 39.png"
       alt="burger illustration"
       class="imgBurger"
@@ -19,6 +20,9 @@
       alt="soda illustration"
       class="imgSoda"
     />
+
+    </div>
+
   </section>
 
   <section class="choiceTheme" *ngIf="estTrie && !paramPartie">

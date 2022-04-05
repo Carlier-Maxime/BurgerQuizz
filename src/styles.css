@@ -30,6 +30,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #652020;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 * {

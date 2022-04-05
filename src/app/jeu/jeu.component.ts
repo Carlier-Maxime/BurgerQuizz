@@ -41,6 +41,7 @@ export class JeuComponent implements OnInit {
   }
 
   choixCat = 0;
+  isOk:boolean = false;
 
   triSelect(id: number){
     this.choixCat = id;
@@ -72,7 +73,7 @@ export class JeuComponent implements OnInit {
     this.tabQuestions = this.questionsService.recupQuestionsTheme(this.paramPartieValeur.value.theme);
     this.estTrie = true;
 
-    this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value; });
+    this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value; this.isOk = true;});
 
   }
 
