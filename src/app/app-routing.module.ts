@@ -1,9 +1,7 @@
-import { DecompteComponent } from './decompte/decompte.component';
 import { JouerComponent } from './jouer/jouer.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {DashboardComponent} from './dashboard/dashboard.component';
 import {QuestionsComponent} from './questions/questions.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {GestionCategorieComponent} from './gestion-categorie/gestion-categorie.component';

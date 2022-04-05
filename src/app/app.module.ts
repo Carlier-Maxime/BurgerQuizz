@@ -17,11 +17,11 @@ import { JeuComponent } from './jeu/jeu.component';
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EquipesComponent } from './equipes/equipes.component';
-import {HeaderComponent} from './header/header.component';
 import { JouerComponent } from './jouer/jouer.component';
 import { ClassementComponent } from './classement/classement.component';
 import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
 import { DecompteComponent } from './decompte/decompte.component';
+import {HeaderComponent} from './header/header.component';
 
 
 
@@ -42,7 +42,6 @@ import { DecompteComponent } from './decompte/decompte.component';
     JouerComponent,
     DecompteComponent,
     HeaderComponent
-
   ],
   imports: [
     BrowserModule,
