@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesService } from '../services/categories.service';
-import { FormControl , FormGroup } from '@angular/forms';
+import { EmailValidator, FormControl , FormGroup } from '@angular/forms';
 import { Personne } from '../models/personnes';
 import { PersonneService } from '../services/personne.service';
 
@@ -10,6 +10,7 @@ import { PersonneService } from '../services/personne.service';
   templateUrl: './gestionjoueur.component.html',
   styleUrls: ['./gestionjoueur.component.css']
 })
+
 export class GestionjoueurComponent implements OnInit {
   personnes: Personne[] = [];
   tmp:number=0
@@ -22,12 +23,14 @@ export class GestionjoueurComponent implements OnInit {
     avatar_url:new FormControl('')
   });
 
+
   constructor(private personnesService: PersonneService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.personnesService.getAllPersonnes().subscribe(personnes => {
       this.personnes = personnes;
     });
+
   }
   addJoueur(): boolean {
     const val: any = this.form.value;

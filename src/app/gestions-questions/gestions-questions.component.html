@@ -1,0 +1,65 @@
+<!--<ul *ngFor="let item of GestionQuestion">
+  <li>{{item.libelle}}</li>
+</ul>-->
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="setBL(1)">Nuggets</button>
+  <button mat-menu-item (click)="setBL(2)">Sel ou Poivre</button>
+  <button mat-menu-item (click)="setBL(3)">L'addition</button>
+</mat-menu>
+
+<form *ngIf="bl==1" [formGroup]='form' (ngSubmit)="addQuestion(1)">
+  <p>Nuggets</p>
+  <label>Question</label>
+  <input type="text" formControlName="libelle">
+  <div *ngFor="let item of Theme " >
+    <label>{{item.libelle}}</label>
+    <input type="radio" value={{item.id_theme}}  formControlName="id_theme">
+  </div>
+  <div >
+    <div class="list-group-item" *ngFor="let item of checklist">
+      <label>{{item.libelle}}</label>
+      <input type="checkbox" value="{{item.id}}" [checked]="item.isSelected" (change)="isAllSelected(item)" />
+    </div>
+  </div>
+
+  <label>fun fact</label>
+  <input type="text" formControlName="fun_fact">
+  <button >Ajouter</button>
+</form>
+<form *ngIf="bl==2" [formGroup]='form' (ngSubmit)="addQuestion(2)">
+  <p>SelPoivre</p>
+  <input type="text" formControlName="libelle">
+
+  <input type="text" formControlName="id_theme">
+  <input type="text" formControlName="explicit">
+  <input type="text" formControlName="fun_fact">
+
+
+  <button >Ajouter</button>
+</form>
+
+<form *ngIf="bl==3" [formGroup]='form' (ngSubmit)="addQuestion(3)">
+  <p>L'addition</p>
+  <input type="text" formControlName="libelle">
+
+  <input type="text" formControlName="id_theme">
+  <input type="text" formControlName="explicit">
+  <input type="text" formControlName="fun_fact">
+
+
+  <button >Ajouter</button>
+</form>
+<button (click)="editB()">Edit</button>
+
+<form [formGroup]='form' *ngIf="edit"  (ngSubmit)="updateQuestion()">
+  <input type="number" formControlName="id_theme" [value]="current.id_theme">
+  <input type="text" formControlName="libelle" [value]="current.libelle">
+  <input type="number" formControlName="bareme" [value]="current.bareme">
+  <input type="number" formControlName="nb_questions" [value]="current.nb_question">
+  <button type="submit">Edit</button>
+  -->
+</form>
+
+
+

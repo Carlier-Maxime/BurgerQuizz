@@ -15,6 +15,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { GestionjoueurComponent } from './gestionjoueur/gestionjoueur.component';
+import { ThemeComponent } from './theme/theme.component';
+import { GestionsQuestionsComponent } from './gestions-questions/gestions-questions.component';
+import {MatMenuModule} from '@angular/material/menu'
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { GestionjoueurComponent } from './gestionjoueur/gestionjoueur.component'
     ReponsesComponent,
     NotFoundComponent,
     GestionCategorieComponent,
-    GestionjoueurComponent
+    GestionjoueurComponent,
+    ThemeComponent,
+    GestionsQuestionsComponent
   ],
     imports: [
         BrowserModule,
@@ -35,7 +40,8 @@ import { GestionjoueurComponent } from './gestionjoueur/gestionjoueur.component'
         MatCardModule,
         MatProgressSpinnerModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatMenuModule
     ],
   providers: [],
   bootstrap: [AppComponent]

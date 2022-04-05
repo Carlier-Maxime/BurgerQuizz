@@ -1,0 +1,9 @@
+<ul *ngFor="let item of Themes">
+  <li>{{item.libelle}}</li>
+
+</ul>
+<form [formGroup]='form' (ngSubmit)="addTheme()">
+  <input type="text" formControlName="libelle">
+
+  <button >Ajouter</button>
+</form>
