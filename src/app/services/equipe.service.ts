@@ -13,8 +13,8 @@ export class EquipeService {
     const url = 'https://equipe04.chez-wam.info:443/joueurs?id_joueur=eq.1' + id;
     return this.http.get<Equipe[]>(url);
   }
-  getNom(id : string|number):string{
-    return this.getEquipeId(id).subscribe(x=>x.nom)
-  }
+  /*getNom(id: string|number): string {
+    return this.getEquipeId(id).subscribe(x=>x.nom);
+  }*/
 
 }

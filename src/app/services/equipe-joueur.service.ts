@@ -32,10 +32,10 @@ export class EquipeJoueurService {
     return this.http.get<EquipeJoueur[]>(url);
   }
 
-  getEquipeNom(id: string | number):string{
+  /*getEquipeNom(id: string | number):string{
     return this.equipeService.getNom(id);
   }
-  /*
+
   getClassementCroissant():Observable<EquipeJoueur[]>{
     console.log("Tri croissant joueur");
     let tmpTab = this.getEquipeJoueur().pipe(map((data)=>{

@@ -1,4 +1,4 @@
 export interface Equipe {
-    id_equipe:number;
-    nom:string;
+    id_equipe: number;
+    nom: string;
 }
