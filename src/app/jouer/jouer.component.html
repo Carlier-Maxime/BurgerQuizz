@@ -10,33 +10,17 @@
     </mat-card-content>
   </mat-card>
 
-  <!---<mat-grid-list cols="1" rowHeight="2:1" *ngIf="!estSoumis">
-    <mat-grid-tile
-      *ngFor="let reponse of reponses">
-      <ul>
-        <button *ngFor="let r of reponses" (click)="valueOfRep(r.bonne_reponse,r.id_question,r.id_reponse)">{{r.libelle}}</button>
-      </ul>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <div *ngIf="!estSoumis">
+    <div *ngFor="let r of reponses">
+      <label>{{r.libelle}}</label>
+      <input  type="checkbox" name={{r.id_reponse}} id="" class="checkbox" value={{r.libelle}}>
+    </div>
+    <button (click)="submitCheckbox()">Envoyer !</button>
 
-
-
-  <form [formGroup]="formAutre" (ngSubmit)="test()" >
-
-    <label *ngFor="let r of reponses">
-      <input type="checkbox" value={{r.id_reponse}}  (change)="test2($event)" formControlName="title" />
-      {{r.libelle}}
-    </label>
-    <button type="submit">Envoyer !</button>
-
-  </form>--->
-
-
-
-
-
-
+  </div>
 </div>
+
+
 
  <!-- Mettre un affichage différent pour sel et poivre :  -->
 
