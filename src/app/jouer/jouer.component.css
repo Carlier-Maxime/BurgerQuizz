@@ -164,3 +164,54 @@
 .invalid {
   background-color: #d24242;
 }
+
+@media only screen and (max-width: 900px) and (orientation: portrait) {
+  .game {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+
+  .question_mode {
+    display: none;
+  }
+
+  .question_content {
+    margin: 0 25px;
+  }
+
+  .question_submit {
+    position: absolute;
+    bottom: 0em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .ui_timer {
+    z-index: 2;
+  }
+
+  .ui_listRep {
+    width: 100%;
+    position: relative;
+    padding: 5em 0;
+  }
+
+  .listRep_elt {
+    width: 100%;
+  }
+
+
+  .listRep_elt label {
+    width: 100%;
+    margin: 0 25px;
+  }
+
+  .ui_progress {
+    position: absolute;
+    top: 7.5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
