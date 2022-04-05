@@ -13,7 +13,7 @@
   <div *ngIf="!estSoumis">
     <div *ngFor="let r of reponses">
       <label>{{r.libelle}}</label>
-      <input  type="checkbox" name={{r.id_reponse}} id="" class="checkbox" value={{r.libelle}}>
+      <input  type="checkbox" name={{r.id_reponse}} id="" class="checkbox" value={{r.libelle}} (click)="selectOk()">
     </div>
     <button (click)="submitCheckbox()">Envoyer !</button>
 

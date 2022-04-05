@@ -43,8 +43,15 @@ export class JouerComponent implements  OnChanges,OnInit {
   nIntervId: any;
   id:number = 0;
 
+  estSelect:boolean = false;
+
+  selectOk(){
+    this.estSelect = true;
+  }
+
   afficheQuestion(){
     this.estSoumis = false;
+    this.estSelect = false;
     this.numQuestion++;
     if(this.current.length > 0){
       this.id = this.current[this.current.length-1].id_question;
