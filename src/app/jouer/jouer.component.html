@@ -4,7 +4,7 @@
   </ng-container>
 
   <mat-card *ngIf="!loading" style="text-align: center">
-    <mat-card-title>La Question  {{ question.id_question }} :</mat-card-title>
+    <mat-card-title>La Question {{ question.id_question }} :</mat-card-title>
     <mat-card-content>
       {{ question.libelle }}
     </mat-card-content>
@@ -12,17 +12,20 @@
 
   <div *ngIf="!estSoumis">
     <div *ngFor="let r of reponses">
-      <label>{{r.libelle}}</label>
-      <input  type="checkbox" name={{r.id_reponse}} id="" class="checkbox" value={{r.libelle}}>
+      <label>{{ r.libelle }}</label>
+      <input
+        type="checkbox"
+        name="{{ r.id_reponse }}"
+        id=""
+        class="checkbox"
+        value="{{ r.libelle }}"
+      />
     </div>
     <button (click)="submitCheckbox()">Envoyer !</button>
-
   </div>
 </div>
 
-
-
- <!-- Mettre un affichage différent pour sel et poivre :  -->
+<!-- Mettre un affichage différent pour sel et poivre :  -->
 
 <div *ngIf="categorieChoisi == 2">
   <ng-container *ngIf="estSoumis">
@@ -30,30 +33,18 @@
   </ng-container>
 
   <mat-card *ngIf="!loading" style="text-align: center">
-    <mat-card-title>La Question  {{ question.id_question }} :</mat-card-title>
+    <mat-card-title>La Question {{ question.id_question }} :</mat-card-title>
     <mat-card-content>
       {{ question.libelle }}
     </mat-card-content>
   </mat-card>
 
-  <form *ngIf="!estSoumis"
-        [formGroup]="repForm"
-        (ngSubmit)="submitBook()">
+  <form *ngIf="!estSoumis" [formGroup]="repForm" (ngSubmit)="submitBook()">
     <label *ngFor="let r of reponses">
-      <input
-            type="radio"
-            value={{r.id_reponse}}
-            formControlName="title">
-          {{r.libelle}}
+      <input type="radio" value="{{ r.id_reponse }}" formControlName="title" />
+      {{ r.libelle }}
     </label>
 
-
-    <button type="submit">Envoyer ! </button>
-
+    <button type="submit">Envoyer !</button>
   </form>
-
 </div>
-
-
-
-
