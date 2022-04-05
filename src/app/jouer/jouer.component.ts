@@ -44,6 +44,7 @@ export class JouerComponent implements  OnChanges,OnInit {
   id:number = 0;
 
   estSelect:boolean = false;
+  estFini = false;
 
   selectOk(){
     this.estSelect = true;
@@ -65,7 +66,7 @@ export class JouerComponent implements  OnChanges,OnInit {
       this.current.pop();
     }
     else{
-      console.log(this.score);
+      this.estFini = true;
     }
   }
 

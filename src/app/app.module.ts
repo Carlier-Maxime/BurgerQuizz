@@ -22,6 +22,7 @@ import { ClassementComponent } from './classement/classement.component';
 import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
 import { DecompteComponent } from './decompte/decompte.component';
 import {HeaderComponent} from './header/header.component';
+import { VictoireComponent } from './victoire/victoire.component';
 
 
 
@@ -41,6 +42,8 @@ import {HeaderComponent} from './header/header.component';
     EquipesComponent,
     JouerComponent,
     DecompteComponent,
+    HeaderComponent,
+    VictoireComponent,
     HeaderComponent
   ],
   imports: [
@@ -57,4 +60,5 @@ import {HeaderComponent} from './header/header.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

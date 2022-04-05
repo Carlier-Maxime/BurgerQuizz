@@ -10,7 +10,7 @@ import { Personne } from '../models/personne';
 export class JoueurService {
 
   constructor(private http: HttpClient) { }
-  getJoueurs():Observable<Personne[]>{
+  getJoueurs(): Observable<Personne[]>{
     const url = 'https://equipe04.chez-wam.info:443/api/joueurs';
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -30,26 +30,26 @@ export class JoueurService {
     return this.http.get<Personne[]>(url);
   }
 
-  getClassementCroissant():Observable<Personne[]>{
-    console.log("Tri croissant joueur");
-    let tmpTab = this.getJoueurs().pipe(map((data)=>{
-        data.sort((p1,p2)=>{
-        return p1.id_joueur < p2.id_joueur ? -1 : 1
-        })
-      return data;
+  getClassementCroissant(): Observable<Personne[]>{
+    console.log('Tri croissant joueur');
+    const tmpTab = this.getJoueurs().pipe(map((data) => {
+        data.sort((p1, p2) => {
+        return p1.score < p2.score ? -1 : 1;
+        });
+        return data;
     }));
-    tmpTab.subscribe(x=>console.log(x));
+    tmpTab.subscribe(x => console.log(x));
     return tmpTab;
   }
 
-  getClassementDecroissant():Observable<Personne[]>{
-    console.log("Tri decroissant joueur");
-    let tmpTab = this.getJoueurs().pipe(map((data)=>{
-      data.sort((p1,p2)=>{
-      return p1.id_joueur > p2.id_joueur ? -1 : 1})
-      return data
+  getClassementDecroissant(): Observable<Personne[]>{
+    console.log('Tri decroissant joueur');
+    const tmpTab = this.getJoueurs().pipe(map((data) => {
+      data.sort((p1, p2) => {
+      return p1.score > p2.score ? -1 : 1; });
+      return data;
     }));
-    tmpTab.subscribe(x=>console.log(x));
+    tmpTab.subscribe(x => console.log(x));
     return tmpTab;
   }
 }

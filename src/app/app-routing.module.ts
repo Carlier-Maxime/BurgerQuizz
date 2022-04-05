@@ -6,8 +6,8 @@ import {QuestionsComponent} from './questions/questions.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {GestionCategorieComponent} from './gestion-categorie/gestion-categorie.component';
 import {EquipesComponent} from './equipes/equipes.component';
-import { ClassementComponent } from './classement/classement.component';
-import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
+import {ClassementEquipeComponent} from './classement-equipe/classement-equipe.component';
+import {ClassementComponent} from './classement/classement.component';
 
 const routes: Routes = [
   {path: 'question/:id', component: QuestionsComponent},

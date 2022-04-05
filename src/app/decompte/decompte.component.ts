@@ -13,6 +13,8 @@ export class DecompteComponent implements OnChanges {
   @Input('question')
   numQ!: number;
 
+  timeAv = this.time;
+
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
 
