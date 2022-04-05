@@ -24,7 +24,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     QuestionsComponent,
     ReponsesComponent,
     NotFoundComponent,
-    GestionCategorieComponent
+    GestionCategorieComponent,
     NotFoundComponent,
     SelEtPoivreComponent,
     JeuComponent
