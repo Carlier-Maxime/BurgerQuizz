@@ -1,6 +1,6 @@
 .choiceTheme {
   width: 100%;
-  font-size: clamp(62px, 10vw, 96px);
+  font-size: clamp(62px, 4vw, 96px);
 
   margin: 0.5em 0;
   background-color: red;

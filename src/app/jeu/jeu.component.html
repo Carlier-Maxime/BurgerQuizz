@@ -23,8 +23,8 @@
     <form class="choiceTheme_content" [formGroup]="paramPartieValeur" (ngSubmit)="triSelectBis()">
 
       <div *ngFor="let t of listeThemeSelect" class="content_elt">
-        <input type="radio" value={{t.id_theme}} formControlName="theme" id="id1" />
-        <label for="id1"><span>{{t.libelle}}</span></label>
+        <input type="radio" value={{t.id_theme}} formControlName="theme" id={{t.id_theme}} name="themeBtn"/>
+        <label for={{t.id_theme}}><span>{{t.libelle}}</span></label>
       </div>
 
       <button type="submit" class="submitTheme">
