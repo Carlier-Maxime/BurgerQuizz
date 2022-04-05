@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button (click)="triSelEtPoivre()">Sel et Poivre</button>
+  <button (click)="triNuggets()">Nuggets</button>
+
+  <div *ngIf="estTrie">
+    <h1>Affichage des questions</h1>
+    <ul>
+      <li *ngFor="let q of tabQuestions|async">{{q.id_question}} {{q.explicit}} {{q.fun_fact}} {{q.id_catetgorie}} {{q.id_theme}} {{q.libelle}}</li>
+    </ul>
+
+  </div>
+
+
+</body>
+</html>l

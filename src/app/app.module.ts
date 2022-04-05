@@ -12,6 +12,8 @@ import {MatCardModule} from "@angular/material/card";
 import {HttpClientModule} from "@angular/common/http";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { SelEtPoivreComponent } from './sel-et-poivre/sel-et-poivre.component';
+import { JeuComponent } from './jeu/jeu.component';
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -23,18 +25,21 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReponsesComponent,
     NotFoundComponent,
     GestionCategorieComponent
+    NotFoundComponent,
+    SelEtPoivreComponent,
+    JeuComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatGridListModule,
-        MatCardModule,
-        MatProgressSpinnerModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatGridListModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
