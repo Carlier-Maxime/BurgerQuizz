@@ -1,17 +1,19 @@
 import { JeuComponent } from './jeu/jeu.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {QuestionsComponent} from "./questions/questions.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {QuestionsComponent} from './questions/questions.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 import {GestionCategorieComponent} from './gestion-categorie/gestion-categorie.component';
+import {EquipesComponent} from './equipes/equipes.component';
 
 const routes: Routes = [
-  {path: '', component:DashboardComponent},
-  {path: 'question/:id', component:QuestionsComponent},
-  {path: 'categorie', component:GestionCategorieComponent},
-  {path: 'api', component:JeuComponent},
-  {path: '**', component:NotFoundComponent}
+  {path: '', component: DashboardComponent},
+  {path: 'question/:id', component: QuestionsComponent},
+  {path: 'categorie', component: GestionCategorieComponent},
+  {path: 'api', component: JeuComponent},
+  {path: 'equipes', component: EquipesComponent},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

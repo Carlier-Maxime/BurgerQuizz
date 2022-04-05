@@ -16,6 +16,7 @@ import { SelEtPoivreComponent } from './sel-et-poivre/sel-et-poivre.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { EquipesComponent } from './equipes/equipes.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     NotFoundComponent,
     GestionCategorieComponent,
     SelEtPoivreComponent,
-    JeuComponent
+    JeuComponent,
+    EquipesComponent
   ],
   imports: [
     BrowserModule,
