@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Categorie} from '../models/categorie';
 import {CategoriesService} from '../services/categories.service';
-import {FormControl, FormGroup, NgForm} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-gestion-categorie',
@@ -13,9 +13,9 @@ export class GestionCategorieComponent implements OnInit {
   categories: Categorie[] = [];
   loading = false;
   form: FormGroup = new FormGroup({
-    libelle: new FormControl(''),
-    bareme: new FormControl(''),
-    nb_questions: new FormControl(''),
+    libelle: new FormControl('', [Validators.required, Validators.max(100)]),
+    bareme: new FormControl('', [Validators.required, Validators.min(1), Validators.max(25)]),
+    nb_questions: new FormControl('', [Validators.required, Validators.min(2), Validators.max(50)]),
   });
   edit = false;
   id = 0;
@@ -32,31 +32,35 @@ export class GestionCategorieComponent implements OnInit {
   }
 
   addCategorie(): void {
-    const val: any = this.form.value;
-    const categorie = this.categoriesService.addCategorie(
-      {
-        id_catetgorie : this.categories.length,
-        libelle : val.libelle,
-        bareme : val.bareme,
-        nb_question : val.nb_questions}
-    );
-    this.categories.push(categorie);
+    if (this.form.valid) {
+      const val: any = this.form.value;
+      const categorie = this.categoriesService.addCategorie(
+        {
+          id_catetgorie : this.categories.length,
+          libelle : val.libelle,
+          bareme : val.bareme,
+          nb_question : val.nb_questions}
+      );
+      this.categories.push(categorie);
+    }
   }
 
   updateCategorie(): void {
-    const val: any = this.form.value;
-    const categorie = this.categoriesService.updateCategorie(this.id,
-      {
-        id_catetgorie : this.id,
-        libelle : val.libelle,
-        bareme : val.bareme,
-        nb_question : val.nb_questions}
-    );
-    this.edit = false;
-    const i: number = this.findCategorie(this.id);
-    this.categories[i].libelle = categorie.libelle;
-    this.categories[i].bareme = categorie.bareme;
-    this.categories[i].nb_question = categorie.nb_question;
+    if (this.form.valid) {
+      const val: any = this.form.value;
+      const categorie = this.categoriesService.updateCategorie(this.id,
+        {
+          id_catetgorie : this.id,
+          libelle : val.libelle,
+          bareme : val.bareme,
+          nb_question : val.nb_questions}
+      );
+      this.edit = false;
+      const i: number = this.findCategorie(this.id);
+      this.categories[i].libelle = categorie.libelle;
+      this.categories[i].bareme = categorie.bareme;
+      this.categories[i].nb_question = categorie.nb_question;
+    }
   }
 
   onEdit(id: number): void {
