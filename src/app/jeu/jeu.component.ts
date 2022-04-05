@@ -65,6 +65,5 @@ export class JeuComponent implements OnInit {
     this.categoriesService.getAllCategories().subscribe((categories) => {
       this.listCategories = categories;
     });
-    sort = this.route.snapshot.queryParamMap.get('filtre');
   }
 }
