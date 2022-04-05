@@ -1,0 +1,12 @@
+.notFound {
+  background-color: #803a20;
+  height: 100%;
+  width: 100%;
+  padding-top: 20%;
+}
+
+.notFound, .notFound * {
+  font-size: 72px;
+  font-weight: bold;
+  text-align: center;
+}

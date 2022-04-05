@@ -17,7 +17,7 @@ import { JeuComponent } from './jeu/jeu.component';
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JouerComponent } from './jouer/jouer.component';
-
+import { EquipesComponent } from './equipes/equipes.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { JouerComponent } from './jouer/jouer.component';
     GestionCategorieComponent,
     SelEtPoivreComponent,
     JeuComponent,
+    EquipesComponent,
     JouerComponent
   ],
   imports: [
