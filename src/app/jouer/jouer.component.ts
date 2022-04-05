@@ -53,7 +53,6 @@ export class JouerComponent implements  OnChanges,OnInit {
   afficheQuestion(){
     this.estSoumis = false;
     this.estSelect = false;
-    this.numQuestion++;
     if(this.current.length > 0){
       this.id = this.current[this.current.length-1].id_question;
       this.questionsService.getQuestion(this.id).subscribe(question => {
@@ -61,6 +60,8 @@ export class JouerComponent implements  OnChanges,OnInit {
         this.reponsesService.getReponses(this.id).subscribe(reponses => {
           this.reponses = reponses;
           this.loading = false;
+          this.numQuestion++;
+
         });
       });
       this.current.pop();
@@ -68,6 +69,8 @@ export class JouerComponent implements  OnChanges,OnInit {
     else{
       this.estFini = true;
     }
+
+
   }
 
   valueOfRep(rep:boolean, idQuestion:number , idReponse:number){

@@ -13,16 +13,16 @@ export class DecompteComponent implements OnChanges {
   @Input('question')
   numQ!: number;
 
-  timeAv = this.time;
 
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
 
-    if(this.time == 0 ){
+    if(this.time == 0){
       this.time = 15;
     }
 
     let truc = setInterval(() => { if (this.time > 0) this.time--; else clearInterval(truc)}, 1000);
+
 
 
   }

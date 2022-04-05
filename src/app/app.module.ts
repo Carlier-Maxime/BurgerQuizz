@@ -23,6 +23,7 @@ import { ClassementEquipeComponent } from './classement-equipe/classement-equipe
 import { DecompteComponent } from './decompte/decompte.component';
 import {HeaderComponent} from './header/header.component';
 import { VictoireComponent } from './victoire/victoire.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -44,7 +45,11 @@ import { VictoireComponent } from './victoire/victoire.component';
     DecompteComponent,
     HeaderComponent,
     VictoireComponent,
-    HeaderComponent
+    HeaderComponent,
+    VictoireComponent,
+    HeaderComponent,
+    SettingsComponent
+
   ],
   imports: [
     BrowserModule,

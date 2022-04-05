@@ -8,6 +8,7 @@ import {GestionCategorieComponent} from './gestion-categorie/gestion-categorie.c
 import {EquipesComponent} from './equipes/equipes.component';
 import {ClassementEquipeComponent} from './classement-equipe/classement-equipe.component';
 import {ClassementComponent} from './classement/classement.component';
+import {SettingsComponent} from './settings/settings.component';
 
 const routes: Routes = [
   {path: 'question/:id', component: QuestionsComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'equipes', component: EquipesComponent},
   {path: 'classement', component: ClassementComponent},
   {path: 'classement-equipe', component: ClassementEquipeComponent},
+  {path: 'settings', component: SettingsComponent},
   {path: '**', component: NotFoundComponent}
 ];
 
