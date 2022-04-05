@@ -1,3 +1,5 @@
+import { ReponsesService } from './../services/reponses.service';
+import { QuestionsService } from './../services/questions.service';
 import { Question } from './../models/question';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -25,45 +27,15 @@ export class JeuComponent implements OnInit {
 
   tabQuestionRetourne:Question[] = [];
 
-  constructor(private http: HttpClient,private router: Router) { }
+  constructor(private http: HttpClient,private router: Router,private questionsService:QuestionsService,private reponsesService:ReponsesService) { }
 
-  recupQuestions(id:number):Observable<Question[]>{
 
-    const url = 'https://equipe04.chez-wam.info:443/api/questions?id_catetgorie=eq.' + id;
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
-    let a = this.http.get<Question[]>(url, httpOptions)
-      .pipe(
-        map(res => res),
-        catchError(err => {
-          console.log('Erreur http : ', err);
-          return of([]);
-        }),
-      );
 
-    return a;
-  }
 
-  recupReponses(id:number):Observable<Reponse[]>{
-    const url = 'https://equipe04.chez-wam.info/api/reponses?id_question=eq.' + id;
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
-    return this.http.get<Reponse[]>(url, httpOptions)
-      .pipe(
-        map(res => res),
-        catchError(err => {
-          console.log('Erreur http : ', err);
-          return of([]);
-        }),
-      );
-
-  }
 
   triSelect(id:number){
     this.categorie = id;
-    this.tabQuestions = this.recupQuestions(id);
+    this.tabQuestions = this.questionsService.recupQuestions(id);
     this.estTrie = true;
     this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value;this.retourneQuestion();});
   }
@@ -79,13 +51,7 @@ export class JeuComponent implements OnInit {
       let index  = this.tabQuestionsLive.indexOf(this.tabQuestionsLive[randNumber]);
       this.tabQuestionsLive.splice(index, 1);
     }
-
-
     this.tabQuestionRetourne = questionsChoisi;
-
-    console.log(this.tabQuestionRetourne);
-
-
   }
 
   ngOnInit(): void {

@@ -20,7 +20,7 @@ export class JouerComponent implements  OnChanges,OnInit {
   loading: boolean = false;
   tabReponse: any = [];
   score:number = 0;
-  valInterval:number = 6000;
+  valInterval:number = 10000;
   estSoumis = false;
   form: any;
 
@@ -80,13 +80,6 @@ export class JouerComponent implements  OnChanges,OnInit {
       title: new FormControl(),
   });
 
-
-  formAutre = this.fb.group({
-    name: '',
-    skills: this.fb.array([]) ,
-  });
-
-
   // cette fonction est appelée lorsque l'on utilise le mode sel et poivre
   submitBook() {
     this.estSoumis = true;
@@ -98,15 +91,53 @@ export class JouerComponent implements  OnChanges,OnInit {
     });
   }
 
-  test(){
-    console.log("ok");
-    console.log(this.formAutre.value);
+  submitCheckbox(){
+    let tabDeRep:number[] = [];
+    let truc :NodeListOf<HTMLInputElement> = document.querySelectorAll('.checkbox');
+    truc.forEach((elt : HTMLInputElement, key : number) => {
+      if (elt.checked) tabDeRep.push(key);
+    })
+
+    let tabRepDeRetour:Reponse[] = [];
+    for(let r of tabDeRep){
+      tabRepDeRetour.push(this.reponses[r]);
+    }
+
+    this.valueOfRepMultiple(tabRepDeRetour);
   }
 
-  test2(event:any){
-    console.log(event.value);
-  }
+  valueOfRepMultiple(tab:Reponse[]){
+    this.estSoumis = true;
 
+    let tabBonneRep:Reponse[] = [];
+
+    for(let r of this.reponses){
+      if(r.bonne_reponse){
+        tabBonneRep.push(r);
+      }
+
+    }
+
+    let tabRep = [tab[0].id_question,tab];
+    this.tabReponse.push(tabRep);
+
+
+    let ok = true;
+
+    for(let r of tab){
+      if(tabBonneRep.indexOf(r) == -1){
+        ok = false;
+      }
+    }
+
+    if((tab.length == tabBonneRep.length) && (ok) ){
+      this.score++;
+      console.log("ok");
+    }
+
+
+
+  }
 
   ngOnInit(): void {
   }
