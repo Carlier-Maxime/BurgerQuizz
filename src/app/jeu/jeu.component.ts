@@ -21,6 +21,9 @@ export class JeuComponent implements OnInit {
   current_question:Question | undefined;
   timeLeft: number = 60;
   categorie:number = 0;
+  nbQuestions:number = 10;
+
+  tabQuestionRetourne:Question[] = [];
 
   constructor(private http: HttpClient,private router: Router) { }
 
@@ -62,9 +65,28 @@ export class JeuComponent implements OnInit {
     this.categorie = id;
     this.tabQuestions = this.recupQuestions(id);
     this.estTrie = true;
-    this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value;});
+    this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value;this.retourneQuestion();});
   }
 
+
+  retourneQuestion(){
+    let randNumber = 0;
+    let questionsChoisi:Question[] = []
+    for(let i = 0 ; i < this.nbQuestions ; i++){
+      randNumber = Math.random() * this.tabQuestionsLive.length-1;
+      randNumber = Math.ceil(randNumber);
+      questionsChoisi.push(this.tabQuestionsLive[randNumber]);
+      let index  = this.tabQuestionsLive.indexOf(this.tabQuestionsLive[randNumber]);
+      this.tabQuestionsLive.splice(index, 1);
+    }
+
+
+    this.tabQuestionRetourne = questionsChoisi;
+
+    console.log(this.tabQuestionRetourne);
+
+
+  }
 
   ngOnInit(): void {
   }

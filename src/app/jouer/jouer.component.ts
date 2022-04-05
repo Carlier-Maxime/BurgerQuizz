@@ -5,7 +5,7 @@ import { timer } from 'rxjs';
 import { Reponse } from '../models/reponse';
 import { QuestionsService } from '../services/questions.service';
 import { ReponsesService } from '../services/reponses.service';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-jouer',
@@ -23,7 +23,9 @@ export class JouerComponent implements  OnChanges,OnInit {
   valInterval:number = 6000;
   estSoumis = false;
   form: any;
-  constructor(private questionsService: QuestionsService, private route: ActivatedRoute, private reponsesService: ReponsesService) { }
+
+
+  constructor(private questionsService: QuestionsService, private route: ActivatedRoute, private reponsesService: ReponsesService,private fb:FormBuilder) { }
 
 
 
@@ -76,11 +78,18 @@ export class JouerComponent implements  OnChanges,OnInit {
 
   repForm = new FormGroup({
       title: new FormControl(),
-      description: new FormControl()
   });
+
+
+  formAutre = this.fb.group({
+    name: '',
+    skills: this.fb.array([]) ,
+  });
+
 
   // cette fonction est appelée lorsque l'on utilise le mode sel et poivre
   submitBook() {
+    this.estSoumis = true;
     let rep: Reponse[] = [];
     console.log(this.repForm.value.title);
     this.reponsesService.getReponses(this.id).subscribe(value => {
@@ -91,9 +100,11 @@ export class JouerComponent implements  OnChanges,OnInit {
 
   test(){
     console.log("ok");
-    console.log(this.repForm.value);
+    console.log(this.formAutre.value);
+  }
 
-
+  test2(event:any){
+    console.log(event.value);
   }
 
 

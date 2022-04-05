@@ -17,14 +17,23 @@
         <button *ngFor="let r of reponses" (click)="valueOfRep(r.bonne_reponse,r.id_question,r.id_reponse)">{{r.libelle}}</button>
       </ul>
     </mat-grid-tile>
-  </mat-grid-list> --->
+  </mat-grid-list>
 
-  <form [formGroup]="repForm" (ngSubmit)="test()" >
 
-    <input *ngFor="let r of reponses"  type="checkbox" formControlName="title" [value]=r.id_reponse />
-    <button type="submit">SUBMIT</button>
 
-  </form>
+  <form [formGroup]="formAutre" (ngSubmit)="test()" >
+
+    <label *ngFor="let r of reponses">
+      <input type="checkbox" value={{r.id_reponse}}  (change)="test2($event)" formControlName="title" />
+      {{r.libelle}}
+    </label>
+    <button type="submit">Envoyer !</button>
+
+  </form>--->
+
+
+
+
 
 
 </div>
@@ -32,7 +41,7 @@
  <!-- Mettre un affichage différent pour sel et poivre :  -->
 
 <div *ngIf="categorieChoisi == 2">
-  <ng-container *ngIf="loading">
+  <ng-container *ngIf="estSoumis">
     <mat-spinner></mat-spinner>
   </ng-container>
 
@@ -55,7 +64,7 @@
     </label>
 
 
-    <button type="submit">Envoyez ! </button>
+    <button type="submit">Envoyer ! </button>
 
   </form>
 
