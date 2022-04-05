@@ -69,6 +69,8 @@ export class JouerComponent implements  OnChanges,OnInit {
     if(rep){
       this.score++;
     }
+
+    console.log(this.tabReponse);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
