@@ -62,6 +62,7 @@ export class GestionCategorieComponent implements OnInit {
   onEdit(id: number): void {
     this.id = id;
     this.current = this.categories[this.findCategorie(id)];
+    console.log(this.current);
     this.edit = true;
   }
 
