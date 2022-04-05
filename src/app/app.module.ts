@@ -23,6 +23,7 @@ import { ClassementComponent } from './classement/classement.component';
 import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
 import { DecompteComponent } from './decompte/decompte.component';
 import { VictoireComponent } from './victoire/victoire.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -43,7 +44,9 @@ import { VictoireComponent } from './victoire/victoire.component';
     JouerComponent,
     DecompteComponent,
     HeaderComponent,
-    VictoireComponent
+    VictoireComponent,
+    HeaderComponent,
+    SettingsComponent
 
   ],
   imports: [
