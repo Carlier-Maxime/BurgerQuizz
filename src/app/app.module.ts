@@ -22,6 +22,7 @@ import { JouerComponent } from './jouer/jouer.component';
 import { ClassementComponent } from './classement/classement.component';
 import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
 import { DecompteComponent } from './decompte/decompte.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -41,7 +42,8 @@ import { DecompteComponent } from './decompte/decompte.component';
     EquipesComponent,
     JouerComponent,
     DecompteComponent,
-    HeaderComponent
+    HeaderComponent,
+    SettingsComponent
 
   ],
   imports: [
