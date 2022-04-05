@@ -134,6 +134,7 @@
 .choiceTheme_content {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .content_elt {
@@ -177,6 +178,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  line-height: 1;
 }
 
 .content_elt input {
