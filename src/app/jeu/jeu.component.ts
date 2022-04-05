@@ -1,14 +1,15 @@
 import { ReponsesService } from './../services/reponses.service';
 import { QuestionsService } from './../services/questions.service';
 import { Question } from './../models/question';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, filter, map } from 'rxjs/operators';
-import { Reponse } from '../models/reponse';
 import { Router } from '@angular/router';
 import { Categorie } from '../models/categorie';
 import { CategoriesService } from '../services/categories.service';
+import { Theme } from '../models/theme';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-jeu',
@@ -24,21 +25,67 @@ export class JeuComponent implements OnInit {
   timeLeft: number = 60;
   categorie: number = 0;
   nbQuestions: number = 10;
+  paramPartie: boolean = false;
+  tabQuestionRetourne: Question[] = [];
+  listeTheme: Theme[] = [];
+  listeThemeSelect: Theme[] = [];
   listCategories: Categorie[] = [];
 
-  tabQuestionRetourne: Question[] = [];
+  themePossible: number[] = [];
+
+  paramPartieValeur = new FormGroup({
+    theme: new FormControl(),
+  });
 
   constructor(
     private categoriesService: CategoriesService,
     private http: HttpClient,
     private router: Router,
     private questionsService: QuestionsService,
-    private reponsesService: ReponsesService
+    private reponsesService: ReponsesService,
+    private themeService: ThemesService
   ) {}
 
+  choixCat: number = 0;
+
   triSelect(id: number) {
-    this.categorie = id;
-    this.tabQuestions = this.questionsService.recupQuestions(id);
+    this.choixCat = id;
+    this.estTrie = true;
+
+    let tab: Question[] = [];
+
+    this.questionsService.recupQuestions(id).subscribe((value) => {
+      tab = value;
+      for (let q of tab) {
+        if (this.themePossible.indexOf(q.id_theme) == -1) {
+          this.themePossible.push(q.id_theme);
+        }
+      }
+      let randNumber;
+      for (let i = 0; i < 4; i++) {
+        randNumber = Math.random() * this.themePossible.length - 1;
+        randNumber = Math.ceil(randNumber);
+        this.listeThemeSelect = [];
+        this.themeService
+          .getTheme(this.themePossible[randNumber])
+          .subscribe((value) => {
+            this.listeThemeSelect.push(value[0]);
+            console.log(value[0]);
+          });
+        this.themePossible.splice(
+          this.themePossible.indexOf(this.themePossible[randNumber]),
+          1
+        );
+      }
+    });
+  }
+
+  triSelectBis() {
+    this.paramPartie = true;
+    this.categorie = this.choixCat;
+    this.tabQuestions = this.questionsService.recupQuestionsTheme(
+      this.paramPartieValeur.value.theme
+    );
     this.estTrie = true;
     this.tabQuestions.subscribe((value) => {
       this.tabQuestionsLive = value;

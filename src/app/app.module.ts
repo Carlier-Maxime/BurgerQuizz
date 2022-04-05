@@ -16,9 +16,14 @@ import { SelEtPoivreComponent } from './sel-et-poivre/sel-et-poivre.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { JouerComponent } from './jouer/jouer.component';
 import { HeaderComponent } from './header/header.component';
 import { EquipesComponent } from './equipes/equipes.component';
+=======
+import { DecompteComponent } from './decompte/decompte.component';
+
+>>>>>>> origin/sylvain
 
 @NgModule({
   declarations: [
@@ -31,8 +36,12 @@ import { EquipesComponent } from './equipes/equipes.component';
     SelEtPoivreComponent,
     JeuComponent,
     JouerComponent,
+<<<<<<< HEAD
     HeaderComponent,
     EquipesComponent,
+=======
+    DecompteComponent
+>>>>>>> origin/sylvain
   ],
   imports: [
     BrowserModule,
