@@ -16,6 +16,7 @@ import { SelEtPoivreComponent } from './sel-et-poivre/sel-et-poivre.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { JouerComponent } from './jouer/jouer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DecompteComponent } from './decompte/decompte.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NotFoundComponent,
     SelEtPoivreComponent,
     JeuComponent,
-    JouerComponent
+    JouerComponent,
+    DecompteComponent
   ],
   imports: [
     BrowserModule,
