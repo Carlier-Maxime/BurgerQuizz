@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
 
-
-  <app-header></app-header>
-
-  <div *ngIf="!estTrie">
-    <button (click)="triSelect(2)">Sel et Poivre</button>
-    <button (click)="triSelect(1)">Nuggets</button>
-    <button (click)="triSelect(3)">L'addition</button>
-  </div>
-
-
+<main>
+  <section>
+    <h1 class="dashboard_title">Choix du<br />mode de jeu</h1>
+    <div *ngIf="!estTrie">
+      <ul class="dashboard_grid">
+        <li class="grid_elt"><a class="elt_cat" (click)="triSelect(2)">Sel et Poivre</a></li>
+        <li class="grid_elt"><a class="elt_cat" (click)="triSelect(1)">Nuggets</a></li>
+        <li class="grid_elt"><a class="elt_cat" (click)="triSelect(3)">L'addition</a></li>
+      </ul>
+    </div>
+    <img
+      src="../../assets/images/Group 39.png"
+      alt="burger illustration"
+      class="imgBurger"
+    />
+    <img
+      src="../../assets/images/soda-svgrepo-com 1.png"
+      alt="soda illustration"
+      class="imgSoda"
+    />
+  </section>
 
   <section class="choiceTheme" *ngIf="estTrie && !paramPartie">
     <form class="choiceTheme_content" [formGroup]="paramPartieValeur" (ngSubmit)="triSelectBis()">
@@ -52,7 +54,6 @@
     <button type="submit">Envoyer ! </button>
 
     </form>
-
   </div>
 
 -->
@@ -61,8 +62,4 @@
 
 
   <app-jouer *ngIf="estTrie && paramPartie" [tabQ]="tabQuestionsLive" [categorie]="categorie"></app-jouer>
-
-
-
-</body>
-</html>
+</main>
