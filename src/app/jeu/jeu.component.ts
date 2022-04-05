@@ -7,6 +7,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
 import { Reponse } from '../models/reponse';
 import {Router} from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Theme } from '../models/theme';
+import { ThemesService } from '../services/themes.service';
 
 @Component({
   selector: 'app-jeu',
@@ -24,22 +27,56 @@ export class JeuComponent implements OnInit {
   timeLeft: number = 60;
   categorie:number = 0;
   nbQuestions:number = 10;
-
+  paramPartie:boolean = false;
   tabQuestionRetourne:Question[] = [];
-
-  constructor(private http: HttpClient,private router: Router,private questionsService:QuestionsService,private reponsesService:ReponsesService) { }
-
-
+  listeTheme:Theme[] = [];
+  listeThemeSelect:Theme[] = [];
 
 
+  themePossible:number[] = [];
 
-  triSelect(id:number){
-    this.categorie = id;
-    this.tabQuestions = this.questionsService.recupQuestions(id);
-    this.estTrie = true;
-    this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value;this.retourneQuestion();});
+  paramPartieValeur = new FormGroup({
+    theme: new FormControl(),
+  });
+
+  constructor(private http: HttpClient,private router: Router,private questionsService:QuestionsService,private reponsesService:ReponsesService,private themeService:ThemesService) {
   }
 
+  choixCat:number = 0;
+
+  triSelect(id:number){
+    this.choixCat = id;
+    this.estTrie = true;
+
+    let tab:Question[] = [];
+
+    this.questionsService.recupQuestions(id).subscribe(value => {
+      tab = value;
+      for(let q of tab){
+        if(this.themePossible.indexOf(q.id_theme)==-1){
+          this.themePossible.push(q.id_theme)
+        }
+      }
+      let randNumber;
+      for(let i = 0 ; i < 4 ; i ++){
+        randNumber = Math.random() * this.themePossible.length-1;
+        randNumber = Math.ceil(randNumber);
+        this.listeThemeSelect = [];
+        this.themeService.getTheme(this.themePossible[randNumber]).subscribe(value => {this.listeThemeSelect.push(value[0]);})
+        this.themePossible.slice(this.themePossible.indexOf(this.themePossible[randNumber]))
+      }
+    })
+  }
+
+  triSelectBis(){
+    this.paramPartie = true;
+    this.categorie = this.choixCat;
+    this.tabQuestions = this.questionsService.recupQuestionsTheme(this.paramPartieValeur.value.theme);
+    this.estTrie = true;
+
+    this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value;});
+
+  }
 
   retourneQuestion(){
     let randNumber = 0;
@@ -54,7 +91,22 @@ export class JeuComponent implements OnInit {
     this.tabQuestionRetourne = questionsChoisi;
   }
 
+
+
   ngOnInit(): void {
+    this.themeService.getThemes().subscribe(value=> {
+      this.listeTheme = value;
+      let randNumber;
+      let tabThemeSelect:Theme[] = [];
+
+      for(let i = 0 ; i < 4 ; i++){
+        randNumber = Math.random() * this.listeTheme.length-1;
+        randNumber = Math.ceil(randNumber);
+        tabThemeSelect.push(this.listeTheme[randNumber]);
+      }
+
+    });
+
   }
 
 }

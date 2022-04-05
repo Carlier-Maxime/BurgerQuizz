@@ -1,3 +1,4 @@
+import { ThemesService } from './../services/themes.service';
 import { Question } from './../models/question';
 import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ɵsetCurrentInjector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -6,6 +7,7 @@ import { Reponse } from '../models/reponse';
 import { QuestionsService } from '../services/questions.service';
 import { ReponsesService } from '../services/reponses.service';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Theme } from '../models/theme';
 
 @Component({
   selector: 'app-jouer',
@@ -20,12 +22,14 @@ export class JouerComponent implements  OnChanges,OnInit {
   loading: boolean = false;
   tabReponse: any = [];
   score:number = 0;
-  valInterval:number = 10000;
+  nbSecondesEntreQuestion = 15;
+  valInterval:number = this.nbSecondesEntreQuestion * 1000;
   estSoumis = false;
   form: any;
 
 
-  constructor(private questionsService: QuestionsService, private route: ActivatedRoute, private reponsesService: ReponsesService,private fb:FormBuilder) { }
+  constructor(private questionsService: QuestionsService, private route: ActivatedRoute, private reponsesService: ReponsesService,private fb:FormBuilder) {
+  }
 
 
 
@@ -132,11 +136,7 @@ export class JouerComponent implements  OnChanges,OnInit {
 
     if((tab.length == tabBonneRep.length) && (ok) ){
       this.score++;
-      console.log("ok");
     }
-
-
-
   }
 
   ngOnInit(): void {
