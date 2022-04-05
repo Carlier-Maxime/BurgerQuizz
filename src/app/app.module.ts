@@ -20,6 +20,7 @@ import { EquipesComponent } from './equipes/equipes.component';
 import {HeaderComponent} from './header/header.component';
 import { JouerComponent } from './jouer/jouer.component';
 import { DecompteComponent } from './decompte/decompte.component';
+import { VictoireComponent } from './victoire/victoire.component';
 
 
 
@@ -36,7 +37,8 @@ import { DecompteComponent } from './decompte/decompte.component';
     EquipesComponent,
     JouerComponent,
     DecompteComponent,
-    HeaderComponent
+    HeaderComponent,
+    VictoireComponent
 
   ],
   imports: [
