@@ -1,0 +1,20 @@
+<p>classement works!</p>
+<div>
+    <button (click)="dataObs = joueurService.getClassementCroissant()">Meilleur</button>
+    <button (click)="dataObs = joueurService.getClassementDecroissant()">Pire</button>
+</div> 
+<table class="tab">
+    <caption>Classement des joueurs</caption>
+    <tr>
+    <th>ID :</th>
+    <th> Pseudo : </th>
+    <th> Temps : </th>
+    <th> Points : </th>
+    </tr>
+    <tr *ngFor="let person of (dataObs | async)">
+    <td><!--a [routerLink]="['/personnes', person.id]"-->{{person.id_joueur}}<!--/a--></td>
+    <td>{{person.pseudo}}</td>
+    <td>{{person.temps}} </td>
+    <td>{{person.score}}</td>
+    </tr>
+</table>

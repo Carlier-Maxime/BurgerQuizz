@@ -19,6 +19,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EquipesComponent } from './equipes/equipes.component';
 import {HeaderComponent} from './header/header.component';
 import { JouerComponent } from './jouer/jouer.component';
+import { ClassementComponent } from './classement/classement.component';
+import { ClassementEquipeComponent } from './classement-equipe/classement-equipe.component';
 import { DecompteComponent } from './decompte/decompte.component';
 
 
@@ -33,6 +35,9 @@ import { DecompteComponent } from './decompte/decompte.component';
     GestionCategorieComponent,
     SelEtPoivreComponent,
     JeuComponent,
+    JouerComponent,
+    ClassementComponent,
+    ClassementEquipeComponent,
     EquipesComponent,
     JouerComponent,
     DecompteComponent,
