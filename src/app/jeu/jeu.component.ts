@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, filter, map } from 'rxjs/operators';
 import { Reponse } from '../models/reponse';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-jeu',
@@ -14,11 +15,17 @@ export class JeuComponent implements OnInit {
 
 
   tabQuestions:Observable<Question[]> = new Observable();
-  tabQuestionsLive:Observable<Question[]> = new Observable();
+  tabQuestionsLive:Question[] = [];
   estTrie:boolean = false;
   tab:Question[] = [];
+  current_question:Question | undefined;
+  timeLeft: number = 60;
+  categorie:number = 0;
+  nbQuestions:number = 10;
 
-  constructor(private http: HttpClient) { }
+  tabQuestionRetourne:Question[] = [];
+
+  constructor(private http: HttpClient,private router: Router) { }
 
   recupQuestions(id:number):Observable<Question[]>{
 
@@ -54,56 +61,34 @@ export class JeuComponent implements OnInit {
 
   }
 
-  triSelEtPoivre(){
-
-    /*
-    this.tabQuestions.pipe(filter(question => question.id_catetgorie == 2));
-    let tabIdQuestion:number[] = [];
-    this.tabQuestions.subscribe(value => tabIdQuestion.push(value.id_question));
-    this.tabReponses.pipe(filter(reponse => {if(tabIdQuestion.indexOf(reponse.id_question) != -1) return true;
-    else{
-      return false;
-    }}))
-    this.tabQuestions.subscribe(value => console.log(value));
+  triSelect(id:number){
+    this.categorie = id;
+    this.tabQuestions = this.recupQuestions(id);
     this.estTrie = true;
-    */
-
-    this.tabQuestions = this.recupQuestions(2);
-    /*
-    this.tabReponses = this.recupReponses();
-    let tabIdQuestion:number[] = [];
-
-    this.tabQuestions.subscribe(value => {
-      this.tab = [...value];
-      this.tabReponses.subscribe(value => {if(this.tab.indexOf(value) != -1)})
-    });
-    */
-
-    this.estTrie = true;
-  }
-
-  triNuggets(){
-    /*
-    this.tabQuestions.pipe(filter(question => question.id_catetgorie == 1));
-    let tabIdQuestion:number[] = [];
-    this.tabQuestions.subscribe(value => tabIdQuestion.push(value.id_question));
-    this.tabReponses.pipe(filter(reponse => {if(tabIdQuestion.indexOf(reponse.id_question) != -1) return true;
-    else{
-      return false;
-    }}))
-
-    this.estTrie = true;
-    */
-    this.tabQuestions = this.recupQuestions(1);
-    this.estTrie = true;
-
+    this.tabQuestions.subscribe(value => {this.tabQuestionsLive = value;this.retourneQuestion();});
   }
 
 
+  retourneQuestion(){
+    let randNumber = 0;
+    let questionsChoisi:Question[] = []
+    for(let i = 0 ; i < this.nbQuestions ; i++){
+      randNumber = Math.random() * this.tabQuestionsLive.length-1;
+      randNumber = Math.ceil(randNumber);
+      questionsChoisi.push(this.tabQuestionsLive[randNumber]);
+      let index  = this.tabQuestionsLive.indexOf(this.tabQuestionsLive[randNumber]);
+      this.tabQuestionsLive.splice(index, 1);
+    }
+
+
+    this.tabQuestionRetourne = questionsChoisi;
+
+    console.log(this.tabQuestionRetourne);
+
+
+  }
 
   ngOnInit(): void {
-
-
   }
 
 }
