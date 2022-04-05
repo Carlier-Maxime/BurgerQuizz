@@ -1,4 +1,5 @@
 <div *ngIf="!estFini">
+  <!--
   <div *ngIf="categorieChoisi != 2">
     <ng-container *ngIf="estSoumis">
       <mat-spinner></mat-spinner>
@@ -20,13 +21,164 @@
 
     </div>
   </div>
+  -->
 
+  <!-- INTEGRATION-->
+
+  <div *ngIf="categorieChoisi != 2">
+    <div *ngIf="!estSoumis">
+      <form class="game" (ngSubmit)="submitCheckbox()">
+        <section class="game_question">
+          <!-- src est le chemin vers asset, le nom du mode -->
+          <img
+            src="../../assets/images/svg/nuggets.svg"
+            alt="Icone du mode nuggets"
+            class="question_mode"
+          />
+          <div class="question_content">
+            <h2 class="content_title">Question n°{{numQuestion}}</h2>
+            <!--<h3 class="content_subTitle">Geographie</h3> -->
+            <p class="content_text">{{question.libelle}}</p>
+
+            <p *ngIf="question.fun_fact" class="content_fact">fun fact : {{question.fun_fact}}</p>
+          </div>
+          <!-- La classe devient class="question_submit is_valid" si un bouton a été selectionné -->
+          <div *ngIf="estSelect">
+            <input type="submit" value="Valider" class="question_submit is_valid" />
+          </div>
+
+          <div *ngIf="!estSelect">
+            <input type="submit" value="Valider" class="question_submit" />
+          </div>
+
+
+
+        </section>
+        <section class="game_ui">
+          <!-- Timer à insérer -->
+          <div class="ui_timer"><span>00:<app-decompte [tempsTime]="nbSecondesEntreQuestion" [question]="numQuestion"></app-decompte></span></div>
+          <ul class="ui_listRep">
+            <!-- Boucler sur toutes les réponses possibles -->
+            <div *ngFor="let r of reponses">
+              <li class="listRep_elt">
+                <input type="checkbox" name={{r.id_reponse}} id={{r.id_reponse}} (click)="selectOk()" />
+                <label for={{r.id_reponse}}> {{r.libelle}} </label>
+              </li>
+            </div>
+
+            <div class="ui_progress">
+              <div class="progress_bar">
+                <!-- Boucler sur le nombre de question et afficher une condition sur l'état de l'index 'vrai ou faux' -->
+                <!-- if(true) class="bar_elt valid"
+                else if(false && nbQuestion visité == questionActuelle) class="bar_elt neutral"
+                else if(false && nbQuestion visité < questionActuelle) class="bar_elt invalid"
+                else if(false && nbQuestion visité > questionActuelle)  class="bar_elt" -->
+                <span class="bar_elt invalid"></span>
+                <span class="bar_elt valid"></span>
+                <span class="bar_elt valid"></span>
+                <span class="bar_elt valid"></span>
+                <span class="bar_elt invalid"></span>
+                <span class="bar_elt neutral"></span>
+                <span class="bar_elt"></span>
+                <span class="bar_elt"></span>
+                <span class="bar_elt"></span>
+                <span class="bar_elt"></span>
+              </div>
+              <img
+                src="../../assets/images/coupe.png"
+                alt="Image de coupe"
+                class="progress_goal"
+              />
+            </div>
+          </ul>
+        </section>
+      </form>
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- INTEGRATION-->
 
 
    <!-- Mettre un affichage différent pour sel et poivre :  -->
 
+
   <div *ngIf="categorieChoisi == 2">
-    <ng-container *ngIf="estSoumis">
+    <div *ngIf="!estSoumis">
+      <form class="game" [formGroup]="repForm" (ngSubmit)="submitBook()">
+        <section class="game_question">
+          <!-- src est le chemin vers asset, le nom du mode -->
+          <img
+            src="../../assets/images/svg/nuggets.svg"
+            alt="Icone du mode nuggets"
+            class="question_mode"
+          />
+          <div class="question_content">
+            <h2 class="content_title">Question n°{{numQuestion}}</h2>
+            <!--<h3 class="content_subTitle">Geographie</h3> -->
+            <p class="content_text">{{question.libelle}}</p>
+
+            <p *ngIf="question.fun_fact" class="content_fact">fun fact : {{question.fun_fact}}</p>
+          </div>
+          <!-- La classe devient class="question_submit is_valid" si un bouton a été selectionné -->
+          <div *ngIf="estSelect">
+            <input type="submit" value="Valider" class="question_submit is_valid" />
+          </div>
+
+          <div *ngIf="!estSelect">
+            <input type="submit" value="Valider" class="question_submit" />
+          </div>
+
+
+
+        </section>
+        <section class="game_ui">
+          <!-- Timer à insérer -->
+          <div class="ui_timer"><span>00:<app-decompte [tempsTime]="nbSecondesEntreQuestion" [question]="numQuestion"></app-decompte></span></div>
+          <ul class="ui_listRep">
+            <!-- Boucler sur toutes les réponses possibles -->
+            <div *ngFor="let r of reponses">
+              <li class="listRep_elt">
+                <input type="radio" name=1 id={{r.id_reponse}}  value={{r.id_reponse}} formControlName="title" (click)="selectOk()">
+                <label for={{r.id_reponse}}> {{r.libelle}} </label>
+              </li>
+            </div>
+
+            <div class="ui_progress">
+              <div class="progress_bar">
+                <!-- Boucler sur le nombre de question et afficher une condition sur l'état de l'index 'vrai ou faux' -->
+                <!-- if(true) class="bar_elt valid"
+                else if(false && nbQuestion visité == questionActuelle) class="bar_elt neutral"
+                else if(false && nbQuestion visité < questionActuelle) class="bar_elt invalid"
+                else if(false && nbQuestion visité > questionActuelle)  class="bar_elt" -->
+                <span class="bar_elt invalid"></span>
+                <span class="bar_elt valid"></span>
+                <span class="bar_elt valid"></span>
+                <span class="bar_elt valid"></span>
+                <span class="bar_elt invalid"></span>
+                <span class="bar_elt neutral"></span>
+                <span class="bar_elt"></span>
+                <span class="bar_elt"></span>
+                <span class="bar_elt"></span>
+                <span class="bar_elt"></span>
+              </div>
+              <img
+                src="../../assets/images/coupe.png"
+                alt="Image de coupe"
+                class="progress_goal"
+              />
+            </div>
+          </ul>
+        </section>
+      </form>
+
+    </div>
+    <!--
+      <ng-container *ngIf="estSoumis">
       <mat-spinner></mat-spinner>
     </ng-container>
 
@@ -54,12 +206,21 @@
     </form>
 
   </div>
+    -->
+
 </div>
+
+
+
 
 <div *ngIf="estFini">
   <app-victoire [score]="score"></app-victoire>
 
 </div>
+
+
+
+
 
 
 
