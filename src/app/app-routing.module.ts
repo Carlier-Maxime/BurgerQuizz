@@ -1,3 +1,4 @@
+import { DecompteComponent } from './decompte/decompte.component';
 import { JouerComponent } from './jouer/jouer.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: '', component:DashboardComponent},
   {path: 'question/:id', component:QuestionsComponent},
   {path: 'jeu', component:JeuComponent},
+  {path: 'test', component:DecompteComponent},
   {path: '**', component:NotFoundComponent}
 ];
 

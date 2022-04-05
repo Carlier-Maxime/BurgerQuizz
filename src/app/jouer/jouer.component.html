@@ -30,12 +30,12 @@
   </ng-container>
 
   <mat-card *ngIf="!loading" style="text-align: center">
-    <mat-card-title>La Question  {{ question.id_question }} :</mat-card-title>
+    <mat-card-title>La Question  {{ numQuestion }} :</mat-card-title>
     <mat-card-content>
       {{ question.libelle }}
     </mat-card-content>
   </mat-card>
-
+  <h1><app-decompte [tempsTime]="nbSecondesEntreQuestion" [question]="numQuestion"></app-decompte></h1>
   <form *ngIf="!estSoumis"
         [formGroup]="repForm"
         (ngSubmit)="submitBook()">
