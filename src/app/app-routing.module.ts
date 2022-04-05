@@ -11,7 +11,6 @@ import { EquipesComponent } from './equipes/equipes.component';
 const routes: Routes = [
   { path: '', component: JeuComponent },
   { path: 'jeu/:id', component: JouerComponent },
-  { path: 'jeu', component: JeuComponent },
   { path: 'api', component: JeuComponent },
   { path: 'categorie', component: GestionCategorieComponent },
   { path: 'equipes', component: EquipesComponent },
