@@ -31,10 +31,11 @@ export class EquipeJoueurService {
     const url = 'https://equipe04.chez-wam.info:443/joueurs?id_joueur=eq.1' + id;
     return this.http.get<EquipeJoueur[]>(url);
   }
-
+/*
   getEquipeNom(id: string | number):string{
     return this.equipeService.getNom(id);
   }
+*/
   /*
   getClassementCroissant():Observable<EquipeJoueur[]>{
     console.log("Tri croissant joueur");

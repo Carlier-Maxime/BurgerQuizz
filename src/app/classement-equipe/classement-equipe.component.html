@@ -1,5 +1,7 @@
 <p>classement-equipe works!</p>
 <div>
+
+    <!--button (click)="equipeJService.getEquipeNom(1)">Meilleur</button-->
     <!--button (click)="dataObs = equipeJService.getClassementCroissant()">Meilleur en partant de la fin </button-->
 </div> 
 <table class="tab">
@@ -10,8 +12,9 @@
         <th> ID joueur : </th>
     </tr>
     <tr *ngFor="let person of (dataObs | async)">
+        <!--div>{{equipeJService.getEquipeNom(person.id_equipe)}}</div-->
         <td>{{person.id_equipe}}</td>
-        <td>{{person.id_equipe_joueur}}</td>
+        <td>{{person.id_equipe_joueur}}</td> 
         <td>{{person.id_joueur}} </td>
     </tr>
 </table>

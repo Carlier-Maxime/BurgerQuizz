@@ -10,6 +10,7 @@ import { EquipeJoueurService } from '../services/equipe-joueur.service';
 })
 export class ClassementEquipeComponent implements OnInit {
   dataObs:Observable<EquipeJoueur[]>
+  //nomEquipe:string="";
 
   constructor(public equipeJService: EquipeJoueurService) { 
     console.log("init a getJoueurs()")
