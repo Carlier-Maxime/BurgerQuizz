@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+<main>
+  <section class="dashboard" *ngIf="!estTrie">
+    <h1 class="dashboard_title">
+      Choix du<br />
+      mode de jeu
+    </h1>
+    <ul class="dashboard_grid">
+      <li *ngFor="let c of listCategories" class="grid_elt">
+        <a class="elt_cat" (click)="triSelect(c.id_catetgorie)">
+          <p>{{ c.libelle }}</p>
+        </a>
+      </li>
+    </ul>
+  </section>
 
-
-  <div *ngIf="!estTrie">
-    <button (click)="triSelect(2)">Sel et Poivre</button>
-    <button (click)="triSelect(1)">Nuggets</button>
-    <button (click)="triSelect(3)">L'addition</button>
-  </div>
-
-  <app-jouer *ngIf="estTrie" [tabQ]="tabQuestionRetourne" [categorie]="categorie"></app-jouer>
-
-
-
-</body>
-</html>
+  <app-jouer
+    *ngIf="estTrie"
+    [tabQ]="tabQuestionRetourne"
+    [categorie]="categorie"
+  ></app-jouer>
+</main>

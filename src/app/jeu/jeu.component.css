@@ -1,0 +1,113 @@
+.dashboard_title {
+  position: relative;
+  margin: 0.25em auto;
+  font-family: var(--main-font);
+  font-size: clamp(62px, 10vw, 96px);
+  line-height: clamp(64px, 10vw, 86px);
+  color: white;
+  max-width: 700px;
+  text-align: center;
+  z-index: 2;
+}
+
+.dashboard_grid {
+  display: flex;
+  margin: 0em 15vw;
+  font-size: clamp(64px, 5vw, 72px);
+  font-family: var(--second-font);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0em;
+}
+
+.grid_elt {
+  position: relative;
+  display: inline-block;
+  height: 300px;
+  width: clamp(454.07px, 5vw, 508.51px);
+  border-radius: 45px;
+  filter: grayscale(75%);
+  transition: filter 0.5s ease-in-out;
+}
+
+.grid_elt:hover {
+  filter: grayscale(0%);
+}
+
+.grid_elt::after {
+  content: "";
+  position: absolute;
+  width: 92.5%;
+  height: 95%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 45px;
+}
+
+.dashboard_grid .grid_elt:nth-child(n) {
+  transform: translate(-10%, 12%) rotateZ(-12.5deg);
+  z-index: 1;
+  background-color: var(--yellow-color);
+}
+
+.dashboard_grid .grid_elt:nth-child(n)::after {
+  background-color: var(--yellow2-color);
+}
+
+.dashboard_grid .grid_elt:nth-child(2n) {
+  z-index: 3;
+  transform: translateY(15%) rotateZ(15deg);
+
+  background-color: var(--red-color);
+}
+
+.dashboard_grid .grid_elt:nth-child(2n)::after {
+  background-color: var(--red2-color);
+}
+
+.dashboard_grid .grid_elt:nth-child(3n) {
+  transform: translate(-5%, -10%) rotateZ(5deg);
+  z-index: 2;
+  background-color: var(--blue-color);
+}
+
+.dashboard_grid .grid_elt:nth-child(3n)::after {
+  background-color: var(--blue2-color);
+}
+
+.elt_cat {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 724px) and (orientation: portrait) {
+  .dashboard_grid {
+    margin: 0;
+  }
+
+  .dashboard_grid .grid_elt:nth-child(n) {
+    transform: rotateZ(-12.5deg);
+    z-index: 1;
+  }
+
+  .dashboard_grid .grid_elt:nth-child(2n) {
+    z-index: 3;
+    transform: rotateZ(15deg);
+
+    background-color: var(--red-color);
+  }
+
+  .dashboard_grid .grid_elt:nth-child(3n) {
+    transform: rotateZ(5deg);
+    z-index: 2;
+    background-color: var(--blue-color);
+  }
+}

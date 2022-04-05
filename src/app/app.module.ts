@@ -8,16 +8,16 @@ import { QuestionsComponent } from './questions/questions.component';
 import { ReponsesComponent } from './reponses/reponses.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {HttpClientModule} from '@angular/common/http';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SelEtPoivreComponent } from './sel-et-poivre/sel-et-poivre.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { GestionCategorieComponent } from './gestion-categorie/gestion-categorie.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JouerComponent } from './jouer/jouer.component';
-
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { JouerComponent } from './jouer/jouer.component';
     GestionCategorieComponent,
     SelEtPoivreComponent,
     JeuComponent,
-    JouerComponent
+    JouerComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +41,9 @@ import { JouerComponent } from './jouer/jouer.component';
     MatCardModule,
     MatProgressSpinnerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
