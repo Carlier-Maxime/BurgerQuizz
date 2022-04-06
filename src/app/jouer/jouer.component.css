@@ -214,4 +214,9 @@
     left: 50%;
     transform: translateX(-50%);
   }
+
+  .listRep_elt input:checked + label {
+    transform: translateX(0);
+    margin : 0;
+  }
 }
