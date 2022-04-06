@@ -211,7 +211,10 @@
 </div>
 
 
+<div *ngIf="estSoumis" class="waiting">
+<h1 class="title_waiting">En Attente de la prochaine question...</h1>
 
+</div>
 
 <div *ngIf="estFini">
   <app-victoire [score]="score"></app-victoire>

@@ -220,3 +220,23 @@
     margin : 0;
   }
 }
+
+.waiting{
+  position: relative;
+  height: 80vh;
+  width: 100vw;
+}
+
+.title_waiting{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: var(--main-font);
+  font-size: clamp(32px, 5vw, 72px);
+  color : white;
+  width: 50%;
+  margin: 0 auto;
+  line-height: 1em;
+  text-align: center;
+  transform: translate(-50%,-50%);
+}
